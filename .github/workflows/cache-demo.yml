@@ -1,17 +1,17 @@
 name: Cache Demo
 on: [push]
 jobs:
-  demo:
+  test:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-    - name: prime-cache-23556f4
-      id: cache-step
-      uses: actions/cache@v4
-      with:
-        path: ~/.cache/demo
-        key: cache-23556f4
-    - name: Show result
-      run: echo "Cache result: ${{ steps.cache-step.outputs.cache-hit }}"
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: prime-cache-23556f4
+        uses: actions/cache@v4
+        with:
+          path: home-cache
+          key: cache-23556f4
+      - name: Check cache
+        run: ls -la home-cache || echo "No cache dir"
+
 
