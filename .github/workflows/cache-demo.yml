@@ -12,5 +12,6 @@ jobs:
       with:
         path: ~/.cache/demo
         key: cache-23556f4
-    - name: Show cache result
+    - name: Show result
       run: echo "Cache result: ${{ steps.cache-step.outputs.cache-hit }}"
+
